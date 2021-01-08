@@ -29,7 +29,7 @@ jobs:
         with:
           path: ~/.elm
           key: ${{ runner.os }}-elm-home-${{ hashFiles('**/elm.json') }}
-      - run: npm ci
+      - run: npm i elm
       - run: ./node_modules/.bin/elm make --output /dev/null && cd generator && ../node_modules/.bin/elm make --output /dev/null src/Main.elm
       - run: npm test
 
@@ -53,7 +53,7 @@ jobs:
         with:
           path: ~/.elm
           key: ${{ runner.os }}-elm-home-${{ hashFiles('**/elm.json') }}
-      - run: npm ci
+      - run: npm i elm
       - run: ./node_modules/.bin/elm make --output /dev/null && cd generator && ../node_modules/.bin/elm make --output /dev/null src/Main.elm
       - name: elm-format
         run: npx --no-install elm-format --validate
@@ -78,7 +78,7 @@ jobs:
         with:
           path: ~/.elm
           key: ${{ runner.os }}-elm-home-${{ hashFiles('**/elm.json') }}
-      - run: npm ci
+      - run: npm i elm
       - run: ./node_modules/.bin/elm make --output /dev/null && cd generator && ../node_modules/.bin/elm make --output /dev/null src/Main.elm
       - name: Build elm docs
         run: ./node_modules/.bin/elm make --docs docs.json
@@ -104,7 +104,7 @@ jobs:
         with:
           path: ~/.elm
           key: ${{ runner.os }}-elm-home-${{ hashFiles('**/elm.json') }}
-      - run: npm ci
+      - run: npm i elm 
       - run: ./node_modules/.bin/elm make --output /dev/null && cd generator && ../node_modules/.bin/elm make --output /dev/null src/Main.elm
       - name: Elm Publish
         uses: dillonkearns/elm-publish-action@1.0.1
